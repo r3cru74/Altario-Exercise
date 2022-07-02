@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { AgGridAngular } from 'ag-grid-angular';
-import { CellClickedEvent,GridReadyEvent,Grid, ColDef, GridOptionsWrapper,GridOptions, GridApi,GetRowIdFunc,GetRowIdParams,RefreshCellsParams } from 'ag-grid-community';
+import {  ColDef,
+          GridApi,
+          GridReadyEvent,
+          RefreshCellsParams,
+          RowNode, } from 'ag-grid-community';
 
 import { timer } from 'rxjs';
 import { Observable } from 'rxjs';
-
+declare var window: any;
+  
 
 @Component({
   selector: 'app-generator-page',
@@ -17,11 +24,11 @@ export class GeneratorPageComponent implements OnInit {
   seconds :Number;
   getColumnPosition : String;
   getRowPosition : String;
-  gridApi : GridApi;
+  gridApi !: GridApi;
   code: String;
+  params !: RefreshCellsParams;
 
 
-  
 rowData : any[] = [
   {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:''},
   {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:''},
@@ -35,7 +42,7 @@ rowData : any[] = [
   {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:''}    
 ];
 
-colDefs : ColDef[] =[   
+columnDefs : ColDef[] =[   
   {field: '0'},
   {field: '1'},
   {field: '2'},
@@ -54,11 +61,18 @@ colDefs : ColDef[] =[
     this.getColumnPosition = new String;
     this.getRowPosition = new String;
     this.arrayRandomLetter;
-    this.gridApi =new GridApi; 
+    this.gridApi = new GridApi;  
     this.code = this.getCode(this.countCharacterOccurences(this.getCharacterCodePosition(this.getColumnPosition,this.getRowPosition)))
     
     
    }
+  
+   
+   onGridReady(params: GridReadyEvent) {
+    this.gridApi = params.api;
+    params.api.setRowData(this.rowData);    
+  }
+
 
   ngOnInit(): void {
 /* Timer 2 sec to update grid   */
@@ -75,6 +89,8 @@ colDefs : ColDef[] =[
     .substring((this.seconds.toString().length)-2,(this.seconds.toString().length)-1);
 
     this.code = this.getCode(this.countCharacterOccurences(this.getCharacterCodePosition(this.getColumnPosition,this.getRowPosition)))
+    
+    this.checkGeneratorGrid();
   })
 
   /*
@@ -125,11 +141,13 @@ colDefs : ColDef[] =[
       }
     }
       console.log(this.rowData); 
-      this.rowData = this.arrayRandomLetter;        
-      this.gridApi.setRowData(this.rowData);
+      this.rowData = this.arrayRandomLetter;  
+
       
       
-     
+   
+   this.gridApi.setRowData(this.rowData);
+   this.gridApi!.refreshCells(this.params);
  
   }
 
@@ -237,8 +255,9 @@ colDefs : ColDef[] =[
           }
         }
         console.log(this.arrayRandomLetter);
-        this.rowData = this.arrayRandomLetter;        
+        this.rowData = this.arrayRandomLetter; 
         this.gridApi.setRowData(this.rowData);
+        this.gridApi!.refreshCells(this.params);
        return true;
       }
     else

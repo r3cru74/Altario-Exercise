@@ -8,6 +8,8 @@ import { PaymentPageComponent } from './payment-page/payment-page.component';
 
 import { AgGridModule } from 'ag-grid-angular';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { AgGridModule } from 'ag-grid-angular';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AgGridModule.withComponents(null)
+    AgGridModule.withComponents(null),
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
