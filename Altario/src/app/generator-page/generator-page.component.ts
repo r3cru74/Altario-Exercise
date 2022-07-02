@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import {  ColDef,
+          ColDefUtil,
           GridApi,
           GridReadyEvent,
           RefreshCellsParams,
@@ -28,6 +29,7 @@ export class GeneratorPageComponent implements OnInit {
   code: String;
   params !: RefreshCellsParams;
 
+  
 
 rowData : any[] = [
   {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:''},

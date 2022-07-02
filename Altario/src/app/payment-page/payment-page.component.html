@@ -1,1 +1,27 @@
-<p>payment-page works!</p>
+
+<div class="Code">
+    <a class="live">Live</a>
+    <div class="display-value">
+        <a>your code:</a>
+    </div>
+</div>
+
+
+<div class = TopContent>
+<label id="payment">payment</label>
+<label id="ammount">ammout</label>
+<input type="text" name="payment_input" id="InputPayment" placeholder="payment">
+<input type="text" name="ammount_input" id="InputAmmount" placeholder="ammount">
+<button class="mat-stroked-button" id="AddPayment"  >+ ADD</button>
+</div>
+
+
+<label>Payment List</label>
+<ag-grid-angular
+   style="width: 100%; height: 50%"
+   class="ag-theme-alpine"
+   [columnDefs] ="columnDefs"
+   [rowData] ="rowData"
+   [headerHeight] = ""
+   (gridReady)="onGridReady($event)"
+ ></ag-grid-angular>
