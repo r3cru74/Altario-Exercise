@@ -72,7 +72,7 @@ columnDefs : ColDef[] =[
     this.gridApi = params.api;
     params.api.setRowData(this.rowData);    
   }
-
+ 
 
   ngOnInit(): void {
 /* Timer 2 sec to update grid   */
@@ -145,9 +145,10 @@ columnDefs : ColDef[] =[
 
       
       
-   
+  
    this.gridApi.setRowData(this.rowData);
    this.gridApi!.refreshCells(this.params);
+   
  
   }
 
@@ -256,8 +257,10 @@ columnDefs : ColDef[] =[
         }
         console.log(this.arrayRandomLetter);
         this.rowData = this.arrayRandomLetter; 
+        
         this.gridApi.setRowData(this.rowData);
         this.gridApi!.refreshCells(this.params);
+        
        return true;
       }
     else
