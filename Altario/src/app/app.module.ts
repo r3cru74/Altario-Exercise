@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { GeneratorPageComponent } from './generator-page/generator-page.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 
+import { AgGridModule } from 'ag-grid-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { PaymentPageComponent } from './payment-page/payment-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgGridModule.withComponents(null)
   ],
   providers: [],
   bootstrap: [AppComponent]

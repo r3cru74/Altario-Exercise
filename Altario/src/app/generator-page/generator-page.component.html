@@ -1,1 +1,18 @@
-<p>generator-page works!</p>
+<label>Character</label>
+<input type="text" name="character" id="InputChar" placeholder="Character">
+<button class="mat-stroked-button" (click) = "this.checkGeneratorGrid()" >generate 2d grid</button>
+
+<!-- AG Grid Angular Component -->
+<ag-grid-angular
+   style="width: 100%; height: 50%"
+   class="ag-theme-alpine"
+   [columnDefs]="colDefs"   
+   [rowData]="rowData"   
+   [headerHeight] = "0"
+ ></ag-grid-angular>
+
+
+<a class="live">Live</a>
+<div class="display-value">
+  <a>your code: {{code}}</a>
+</div>
