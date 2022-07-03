@@ -1,11 +1,11 @@
 
-<div class ="TopContent">
-    <label>Character</label>
+<div class ="TopContent"></div>
+    <label id="labelCharacter">Character</label>
     <input type="text" name="character" id="InputChar" placeholder="Character">
     <!--<mat-icon class="mat-icon-rtl-mirror" svgIcon="thumb-up"></mat-icon>  <mat-icon>query_builder</mat-icon> er query builder icon-->
     <button class="mat-stroked-button" id="generate" (click) = "this.checkGeneratorGrid()" >generate 2d grid</button>
 
-</div>
+
 
 <ag-grid-angular
    style="width: 100%; height: 50%"
@@ -15,13 +15,12 @@
    [headerHeight] = "0"
    (gridReady)="onGridReady($event)"
  ></ag-grid-angular>
- 
 
 
 <div class="Code">
-    <a class="live">Live</a>
+    <a id="dot">.</a><a id="live">Live</a>
     <div class="display-value">
-        <a>your code: {{code}}</a>
-        
+        <a>your code: <b>{{code}}</b></a>
+      
     </div>
 </div>

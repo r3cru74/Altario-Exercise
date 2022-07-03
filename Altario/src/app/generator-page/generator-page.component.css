@@ -1,36 +1,86 @@
-.TopContent label
+.TopContent{
+    height: 1em;    
+
+}
+
+#labelCharacter
 {
-    color: lightsteelblue;
     float: left;
-    padding: 0em 3em;
+    margin: 0em 4em;
+    color: rgb(138, 157, 164);
     text-align: center;
 }
-.TopContent input{
+
+#InputChar {
     float: left;
     margin: 2em -10em;
-
+    height: 2em;
+    width: 5em;
+    text-align: center;
+    border: 1px;    
+    border-style: solid;
+    border-color: rgb(138, 157, 164);
+    
 }
 
-.TopContent #generate{
+#generate{
     float: right;
+    color: white;
+    background-color: rgb(138, 157, 164);
+    margin: 0em 2em 0em 0em;
 }
 
 .ag-theme-alpine{
-    float: left;
+    margin: 10em 0em;
+    
 }
+
 
 .Code{
     float: none;
     display: block;
     text-align: center;
     margin-top: 5em;
+    border: 1px;    
+    border-style: solid;
+    border-color: black;
+}
+
+#dot{
+    color: red;
+    font-size: 5em;
+   
+    
+}
+
+#live{
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
 
 }
-.Code .display-value{
-    float: none;
-    display: block;
+
+.display-value{  
+    height: 2em;
+    width: 10em;
+    border: 1px;    
+    border-style: solid;
+    border-color: black;
     text-align: center;
-    margin-left: 1em;
+    padding-top: 1em;
+    margin-left: 50%;
+    margin-right: 50%;
+
 }
+
+.display-value a{ 
+font-size: large;
+
+}
+
+
+
+
+
 
 

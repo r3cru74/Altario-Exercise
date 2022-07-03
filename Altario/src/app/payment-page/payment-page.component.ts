@@ -7,6 +7,9 @@ import {  ColDef,
           RefreshCellsParams,
           RowNode, } from 'ag-grid-community';
 
+import { timer } from 'rxjs';
+
+ 
 @Component({
   selector: 'app-payment-page',
   templateUrl: './payment-page.component.html',
@@ -19,10 +22,9 @@ export class PaymentPageComponent implements OnInit {
   getColumnPosition !: String;
   getRowPosition !: String;
   gridApi !: GridApi;
-  code!: String;
+  code !: string;
   params !: RefreshCellsParams;
 
- 
 
 rowData : any[] = [];
 
@@ -44,6 +46,9 @@ onGridReady(params: GridReadyEvent) {
   constructor() { }
 
   ngOnInit(): void {
+    timer(0,2000).subscribe(()=> {
+    
+    });
   }
  
 
