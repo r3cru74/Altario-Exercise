@@ -30,7 +30,7 @@ database.connect(err=>{
 
 //Get data from Database
 
-app.get('/Payment',(req,res)=>{
+app.get('/Api',(req,res)=>{
     console.log('get payment')
 
     let query = `SELECT * FROM Payment`;
@@ -49,7 +49,7 @@ app.get('/Payment',(req,res)=>{
 });
 
 //get single Data from Database
-app.get('/Payment/:id',(req,res)=>{
+app.get('/Api/:id',(req,res)=>{
     let gID = req.params.id;
 
     let query = `SELECT * FROM Payment WHERE id=${gID}`;
@@ -68,7 +68,7 @@ app.get('/Payment/:id',(req,res)=>{
 
 //Create data into database
 
-app.post('/Payment',(req,res)=>{
+app.post('/Api',(req,res)=>{
     console.log(req.body,'Post data');
 
     let name = req.body.name;
@@ -91,7 +91,7 @@ app.post('/Payment',(req,res)=>{
 
 //Update database
 
-app.put('/Payment',(req,res)=>{
+app.put('/Api',(req,res)=>{
     console.log(req.body,'Update data');
 
     let id = req.params.id;
@@ -115,7 +115,7 @@ app.put('/Payment',(req,res)=>{
 
 //Delete item From Database
 
-app.delete('/Payment',(req,res)=>{
+app.delete('/Api',(req,res)=>{
     console.log(req.body,'Delete data');
 
     let id = req.params.id;

@@ -9,6 +9,9 @@ import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { AgGridModule } from 'ag-grid-angular';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ApiserviceService } from './apiservice.service';
+
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,10 +23,12 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     AgGridModule.withComponents(null),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [ApiserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

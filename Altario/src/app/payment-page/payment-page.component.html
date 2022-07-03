@@ -2,7 +2,7 @@
 <div class="Code-payment"><a id="dot-payment">.</a><a class="live-payment">Live</a></div>
 <div class="display-value-payment"><a>your code: {{code}}</a></div>
  
-<!-- <app-generator-page [CodeGen]="code"></app-generator-page>-->
+ <!--<app-generator-page [CodeGen]="code"></app-generator-page>-->
         
     
 
@@ -11,10 +11,11 @@
 <div class = TopContent-payment></div>
 <label id="payment">payment</label>
 <label id="ammount">ammout</label>
-<input type="text" name="payment_input" id="InputPayment" placeholder="payment">
-<input type="text" name="ammount_input" id="InputAmmount" placeholder="ammount">
+<form [formGroup]="userForm" (ngSubmit)="userSubmit()">
+<input type="text" name="payment_input" id="InputPayment" formControlName="name" placeholder="payment">
+<input type="text" name="ammount_input" id="InputAmmount" formControlName="ammount" placeholder="ammount">
 <button class="mat-stroked-button" id="AddPayment"  >+ ADD</button>
-
+</form>
 
 
 <label id="paymentList">Payment List</label>
