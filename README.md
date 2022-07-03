@@ -25,6 +25,9 @@ npm install -g @angular/cli
 npm install -g nodemon
 
 ```
+5. Database created in phpmyadmin
+. install xampp and import the db_altario.sql
+
 # Add Git Repository
 ```
 git remote add origin https://github.com/<username>/<repositoryname>.git
