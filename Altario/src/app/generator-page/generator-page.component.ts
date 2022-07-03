@@ -9,8 +9,10 @@ import {  ColDef,
           RefreshCellsParams,
           RowNode, } from 'ag-grid-community';
 
-import { timer } from 'rxjs';
+import { generate, timer } from 'rxjs';
 import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import { ApiserviceService } from '../apiservice.service';
 
@@ -32,16 +34,11 @@ export class GeneratorPageComponent implements OnInit {
 
   @Input() CodeGen !:string;
 
-  //obserable of code generator
- getCodeGenerator(): any {
-  var codeGenerator = new Observable(observer => {
-    setTimeout(() => {
-      observer.next(this.code);
-  }, 1000);
-  });
-  
-  return codeGenerator;
-}
+  codeGenerator = new BehaviorSubject<any>(this.code);
+
+  codeObservable = this.codeGenerator.asObservable();
+
+
 
 rowData : any[] = [
   {0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:''},
@@ -81,11 +78,14 @@ columnDefs : ColDef[] =[
    
    onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
-    params.api.setRowData(this.rowData);    
+    params.api.setRowData(this.rowData); 
+     this.gridApi.sizeColumnsToFit();
+     this.gridApi!.refreshCells(this.params);  
   }
  
 
   ngOnInit(): void {
+    
   /* Timer 2 sec to update grid   */
   timer(0,2000).subscribe(()=> {
     this.dateTime = new Date();
@@ -102,7 +102,7 @@ columnDefs : ColDef[] =[
     this.CodeGen = this.code;
 
     console.log("Seconds: "+this.seconds +" get column position: "+this.getColumnPosition+" get row position: "+this.getRowPosition+" Number code: "+this.code)
-    this.checkGeneratorGrid();
+    this.gridFillGenerator();
   })
 
   }
@@ -141,10 +141,14 @@ splitSeconds(num :Number){
    
       console.log("char input:" + charInput.value);
       if(charInput.value != null && charInput.value != "" && charInput.disabled == false)
-        { 
+        {           
           charInput.disabled = true;          
-          setTimeout(()=>{charInput.disabled =false;},4000)
-          this.setBiasWeight(charInput.value);         
+          setTimeout(()=>{
+            charInput.disabled =false;
+            charInput.value = ""; 
+          },4000)
+          this.setBiasWeight(charInput.value);   
+
         }else
         {
           this!.gridFillGenerator();
@@ -171,9 +175,9 @@ splitSeconds(num :Number){
 
       
       
-  this.gridApi.sizeColumnsToFit()
+  
    this.gridApi.setRowData(this.rowData);
-   this.gridApi!.refreshCells(this.params);
+   
    
  
   }
@@ -250,6 +254,8 @@ splitSeconds(num :Number){
 
   setBiasWeight(char : string)
   {
+
+
     var letters = /^[a-z]+$/;
     if(char.match(letters))
       {
@@ -277,9 +283,9 @@ splitSeconds(num :Number){
         }
         console.log(this.arrayRandomLetter);
         this.rowData = this.arrayRandomLetter; 
-        this.gridApi.sizeColumnsToFit()
+        
         this.gridApi.setRowData(this.rowData);
-        this.gridApi!.refreshCells(this.params);
+        
 
         this.service.setBias(this.rowData).subscribe((res)=>{
           console.log(res,'pass Bias')

@@ -27,7 +27,7 @@ export class PaymentPageComponent implements OnInit {
   getColumnPosition !: String;
   getRowPosition !: String;
   gridApi !: GridApi;
-  code !: string;
+  paymentCode : string[]=[];
   params !: RefreshCellsParams;
   generatorCode !:GeneratorPageComponent;
   readData !: any;
@@ -49,18 +49,15 @@ onGridReady(params: GridReadyEvent) {
 
 
 
-  constructor(private service:ApiserviceService) { }
+  constructor(private service:ApiserviceService, ) { }
 
  
 
   ngOnInit(): void {
-
     
-    this.generatorCode!.getCodeGenerator().subscribe((val:any)=>{
-      console.log('value obserable'+ val );
-
-    })     
- 
+    console.log("TESTTETSETSETSETSETSETSET")
+    this.generatorCode.codeObservable.subscribe((data)=> this.paymentCode.push(data));
+ console.log(this.generatorCode.codeObservable.subscribe((data)=> this.paymentCode.push(data)));
    this.service.getAllData().subscribe((res)=>{
     console.log(res,"response");
 
