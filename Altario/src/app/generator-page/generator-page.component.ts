@@ -78,11 +78,12 @@ columnDefs : ColDef[] =[
    
    onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
+    this.gridApi.setFilterModel(null);  
     params.api.setRowData(this.rowData); 
-     this.gridApi.sizeColumnsToFit();
-     this.gridApi!.refreshCells(this.params);  
+    this.gridApi.sizeColumnsToFit();
+    this.gridApi!.refreshCells(this.params);  
+  
   }
- 
 
   ngOnInit(): void {
     
@@ -130,8 +131,6 @@ splitSeconds(num :Number){
 
         return [col,row]
       }
-      
-
 }
   
   checkGeneratorGrid()
@@ -173,13 +172,8 @@ splitSeconds(num :Number){
       console.log(this.rowData); 
       this.rowData = this.arrayRandomLetter;  
 
-      
-      
-  
    this.gridApi.setRowData(this.rowData);
    
-   
- 
   }
 
   generateRandomLetterAlphabet()
@@ -254,8 +248,6 @@ splitSeconds(num :Number){
 
   setBiasWeight(char : string)
   {
-
-
     var letters = /^[a-z]+$/;
     if(char.match(letters))
       {
