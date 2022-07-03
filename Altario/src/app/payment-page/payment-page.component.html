@@ -13,7 +13,7 @@
 <label id="ammount">ammout</label>
 <form [formGroup]="userForm" (ngSubmit)="userSubmit()">
 <input type="text" name="payment_input" id="InputPayment" formControlName="name" placeholder="payment">
-<input type="text" name="ammount_input" id="InputAmmount" formControlName="ammount" placeholder="ammount">
+<input type="number" name="ammount_input" id="InputAmmount" formControlName="ammount" placeholder="ammount">
 <button class="mat-stroked-button" id="AddPayment"  >+ ADD</button>
 </form>
 

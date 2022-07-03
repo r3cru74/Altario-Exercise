@@ -133,7 +133,11 @@ app.delete('/Api',(req,res)=>{
     });
 })
 
+//receive bias
 
+app.post('/Api',(req,res)=>{
+    console.log(req.body,'Get Bias');   
+})
 
 app.listen(port,()=>{
     console.log('Server running on port:'+port);

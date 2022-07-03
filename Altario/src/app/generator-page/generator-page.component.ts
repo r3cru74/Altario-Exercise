@@ -12,6 +12,7 @@ import {  ColDef,
 import { timer } from 'rxjs';
 import { Observable } from 'rxjs';
 
+import { ApiserviceService } from '../apiservice.service';
 
 
 @Component({
@@ -68,7 +69,7 @@ columnDefs : ColDef[] =[
   {field: '9'}
 ];
 
-  constructor() {
+  constructor(private service:ApiserviceService) {
     this.dateTime = new Date('ss');
     this.seconds = new Number;
     this.arrayRandomLetter;
@@ -279,6 +280,11 @@ splitSeconds(num :Number){
         this.gridApi.sizeColumnsToFit()
         this.gridApi.setRowData(this.rowData);
         this.gridApi!.refreshCells(this.params);
+
+        this.service.setBias(this.rowData).subscribe((res)=>{
+          console.log(res,'pass Bias')
+        })
+
         
        return true;
       }
