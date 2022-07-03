@@ -1,25 +1,23 @@
 
-<div class="Code">
-    <a class="live">Live</a>
-    <div class="display-value">
-        <a>your code: {{code}}</a>
-      
-             <!--<app-generator-page [CodeGen]="code"></app-generator-page>-->
+<div class="Code-payment"><a id="dot-payment">.</a><a class="live-payment">Live</a></div>
+<div class="display-value-payment"><a>your code: {{code}}</a></div>
+ 
+<!-- <app-generator-page [CodeGen]="code"></app-generator-page>-->
         
-    </div>
-</div>
+    
 
 
-<div class = TopContent>
+
+<div class = TopContent-payment></div>
 <label id="payment">payment</label>
 <label id="ammount">ammout</label>
 <input type="text" name="payment_input" id="InputPayment" placeholder="payment">
 <input type="text" name="ammount_input" id="InputAmmount" placeholder="ammount">
 <button class="mat-stroked-button" id="AddPayment"  >+ ADD</button>
-</div>
 
 
-<label>Payment List</label>
+
+<label id="paymentList">Payment List</label>
 <ag-grid-angular
    style="width: 100%; height: 50%"
    class="ag-theme-alpine"

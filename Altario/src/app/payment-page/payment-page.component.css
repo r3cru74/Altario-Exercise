@@ -1,0 +1,104 @@
+.Code-payment{
+    margin-top: 1em;
+    width: 10em;
+    display: block;
+    text-align: center;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#dot-payment{
+    color: red;
+    font-size: 5em;
+   
+    
+}
+
+#live-payment{
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.display-value-payment{  
+    height: 2em;
+    width: 10em;
+    border: 1px;    
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    padding-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.TopContent-payment{
+    height: 1em;  
+
+}
+
+#payment{
+    float: left;
+    margin: 0em 4em;
+    color: rgb(138, 157, 164);
+    text-align: center;
+
+}
+
+#ammount{
+    float: left;
+    margin: 0em 4em;
+    color: rgb(138, 157, 164);
+    text-align: center;
+}
+
+#InputPayment{
+    float: left;
+    margin: 2em -24em;
+    height: 2em;
+    width: 5em;
+    text-align: center;
+    border: 1px;    
+    border-style: solid;
+    border-color: rgb(138, 157, 164);
+    
+}
+
+#InputAmmount{
+    float: left;
+    margin: 2em -10em;
+    height: 2em;
+    width: 5em;
+    text-align: center;
+    border: 1px;    
+    border-style: solid;
+    border-color: rgb(138, 157, 164);
+    
+}
+
+
+#AddPayment{
+    height: 3em;
+    text-align: center;
+    vertical-align: middle;
+    float: left;
+    color: white;
+    background-color: rgb(138, 157, 164);
+    margin: 0em 2em 0em 0em;
+}
+
+#paymentList{
+    float: left;
+    margin: 6em -22em;
+    color: rgb(138, 157, 164);
+    text-align: center;
+
+}
+.ag-theme-alpine{
+    margin: 10em 0em;
+    
+}
+
