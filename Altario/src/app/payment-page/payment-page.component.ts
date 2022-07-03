@@ -54,7 +54,7 @@ export class PaymentPageComponent implements OnInit {
   ngOnInit(): void {
     
     console.log("retreive Observable")
-    // this.generatorCode.codeObservable.subscribe((data)=> this.paymentCode.push(data));
+    //this.generatorCode.codeObservable.subscribe((data)=> this.paymentCode.push(data));
 
     /* get data from the database */
     console.log("retreive Data from database");
@@ -64,8 +64,8 @@ export class PaymentPageComponent implements OnInit {
     this.readData = res.data;
     });
 
-    timer(0,2000).subscribe(()=> {
-      
+    /* timer of 2 sec*/
+    timer(0,2000).subscribe(()=> {      
     this.loadGrid();
     });
   }

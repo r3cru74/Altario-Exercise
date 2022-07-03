@@ -9,7 +9,7 @@ import {  ColDef,
           RefreshCellsParams,
           RowNode, } from 'ag-grid-community';
 
-import { generate, timer } from 'rxjs';
+import { timer } from 'rxjs';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
