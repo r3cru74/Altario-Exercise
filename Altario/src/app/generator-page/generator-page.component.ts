@@ -160,7 +160,7 @@ splitSeconds(num :Number){
 
       
       
-  
+  this.gridApi.sizeColumnsToFit()
    this.gridApi.setRowData(this.rowData);
    this.gridApi!.refreshCells(this.params);
    
@@ -266,7 +266,7 @@ splitSeconds(num :Number){
         }
         console.log(this.arrayRandomLetter);
         this.rowData = this.arrayRandomLetter; 
-        
+        this.gridApi.sizeColumnsToFit()
         this.gridApi.setRowData(this.rowData);
         this.gridApi!.refreshCells(this.params);
         
